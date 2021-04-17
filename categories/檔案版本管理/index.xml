@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – 檔案版本管理</title>
+    <link>https://git-for-newbie.kejyun.com/categories/%E6%AA%94%E6%A1%88%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 檔案版本管理 on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/categories/%E6%AA%94%E6%A1%88%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 檔案（File）</title>
+      <link>https://git-for-newbie.kejyun.com/docs/file/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/file/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檔案還原&#34;&gt;檔案還原&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout -- &amp;lt;file&amp;gt;
+$ git checkout -- revert_file_name
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zlargon.gitbooks.io/git-tutorial/content/file/recover.html&#34;&gt;檔案還原 · Git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

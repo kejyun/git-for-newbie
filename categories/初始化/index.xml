@@ -1,0 +1,48 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – 初始化</title>
+    <link>https://git-for-newbie.kejyun.com/categories/%E5%88%9D%E5%A7%8B%E5%8C%96/</link>
+    <description>Recent content in 初始化 on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/categories/%E5%88%9D%E5%A7%8B%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 初始化</title>
+      <link>https://git-for-newbie.kejyun.com/docs/start/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/start/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;設定名稱&#34;&gt;設定名稱&lt;/h2&gt;
+&lt;p&gt;在推送文件版本時，會使用什麼樣的作者名稱記錄在 git commit 裡，這些作者資訊記錄在 &lt;code&gt;user.name&lt;/code&gt; 及 &lt;code&gt;user.email&lt;/code&gt; 中&lt;/p&gt;
+&lt;p&gt;可以使用下列指令紀錄文件變更的作者是誰&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git config --global user.name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;KJ&amp;#34;&lt;/span&gt;
+$ git config --global user.email kj@kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化-git&#34;&gt;初始化 git&lt;/h2&gt;
+&lt;p&gt;在任一文件要進行版本控管時，可以在該目錄下 git 指令，開始使用 git 進行版本控管&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化-git-並指定初始分支&#34;&gt;初始化 git 並指定初始分支&lt;/h2&gt;
+&lt;p&gt;原先 git 預設的分支為 &lt;code&gt;master&lt;/code&gt;，在之後預設的分支改為 &lt;code&gt;main&lt;/code&gt;，但若 git 沒有進行版本更新時，在每次初始化皆還是使用 &lt;code&gt;master&lt;/code&gt; 當作該分支&lt;/p&gt;
+&lt;p&gt;若要直接指定預設分支時，可以使用 &lt;code&gt;-b&lt;/code&gt; 參數指定初始化的預設分支&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git init -b main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup&#34;&gt;Git - First-Time Git Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

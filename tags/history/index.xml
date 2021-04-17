@@ -1,0 +1,71 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – History</title>
+    <link>https://git-for-newbie.kejyun.com/tags/history/</link>
+    <description>Recent content in History on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/tags/history/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 歷史（History）</title>
+      <link>https://git-for-newbie.kejyun.com/docs/history/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/history/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;顯示目前圖形化-commit-log-紀錄&#34;&gt;顯示目前圖形化 commit Log 紀錄&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 圖形化紀錄&lt;/span&gt;
+git log --oneline --graph
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 包含時間資訊&lt;/span&gt;
+git log --oneline --graph --pretty&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;format:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;%h &amp;lt;%an&amp;gt; %ar %s&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph-pretty-format.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 找到指定作者 KeJyun 的 Log 紀錄&lt;/span&gt;
+git log --oneline --graph --author&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;KeJyun&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph-author.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 找到指定作者 KeJyun 或 KJ 的 Log 紀錄&lt;/span&gt;
+git log --oneline --graph --author&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;KeJyun\|KJ&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph-multi-author.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --oneline --graph --decorate --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph-decorate-all.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --pretty&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;oneline --graph --decorate --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/git-log-oneline-graph-decorate-all-pretty.png&#34; alt=&#34;git log &amp;ndash;oneline &amp;ndash;graph&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --oneline --graph --color --all --decorate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;搜尋指定-commit-訊息的-log-紀錄&#34;&gt;搜尋指定 commit 訊息的 Log 紀錄&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --oneline --grep&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;文章&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;顯示樹狀-log&#34;&gt;顯示樹狀 log&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --graph --oneline --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git log --graph --pretty&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;oneline --abbrev-commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;$ git log --graph --pretty=oneline --abbrev-commit
+*   74eff4f Merge branch &#39;feature/jwt_auth_package_update&#39; of github.com:kejyun/kejyun
+|\
+| * 6ad01dd [jwt] upgrade jwt package at frontend
+| * 7690a01 [package] - jwt upgrade
+* | 8b25aeb [test] - codedeploy
+* | d172c17 [test] - code deploy
+* | 37474c1 [Module] - add KJModule
+* | 1c6c4c5 [test] - test code deploy
+|/
+* 1150a44 [modify] - job update
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/5361019/viewing-full-version-tree-in-git&#34;&gt;gitk - Viewing full version tree in git - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/1064361/unable-to-show-a-git-tree-in-terminal&#34;&gt;Unable to show a Git tree in terminal - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

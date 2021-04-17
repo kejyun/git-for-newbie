@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – 初始化</title>
+    <link>https://git-for-newbie.kejyun.com/docs/start/</link>
+    <description>Recent content in 初始化 on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/docs/start/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

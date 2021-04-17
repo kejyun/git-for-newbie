@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – workflow</title>
+    <link>https://git-for-newbie.kejyun.com/tags/workflow/</link>
+    <description>Recent content in workflow on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 工作流程 workflow</title>
+      <link>https://git-for-newbie.kejyun.com/docs/workflow/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/workflow/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;git-flow&#34;&gt;Git Flow&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitbook.tw/chapters/gitflow/why-need-git-flow.html&#34;&gt;Git Flow 是什麼？為什麼需要這種東西？ - 為你自己學 Git | 高見龍&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github-flow&#34;&gt;Github Flow&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://guides.github.com/introduction/flow/&#34;&gt;Understanding the GitHub flow · GitHub Guides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.wu-boy.com/2017/12/github-flow-vs-git-flow/comment-page-1/&#34;&gt;GitHub Flow 及 Git Flow 流程使用時機 | 小惡魔 - 電腦技術 - 工作筆記 - AppleBOY&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10194717&#34;&gt;【DAY11】git flow &amp;amp; github flow - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

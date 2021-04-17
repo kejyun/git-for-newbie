@@ -1,0 +1,35 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – 參考資料</title>
+    <link>https://git-for-newbie.kejyun.com/tags/%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99/</link>
+    <description>Recent content in 參考資料 on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/tags/%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 參考資料</title>
+      <link>https://git-for-newbie.kejyun.com/docs/reference/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/reference/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zlargon.gitbooks.io/git-tutorial/content/&#34;&gt;簡介 · Git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

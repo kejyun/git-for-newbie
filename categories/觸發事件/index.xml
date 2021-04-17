@@ -1,0 +1,83 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git 菜雞修煉場 – 觸發事件</title>
+    <link>https://git-for-newbie.kejyun.com/categories/%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6/</link>
+    <description>Recent content in 觸發事件 on Git 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 17 Apr 2021 00:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://git-for-newbie.kejyun.com/categories/%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: hook</title>
+      <link>https://git-for-newbie.kejyun.com/docs/hook/</link>
+      <pubDate>Sat, 17 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/hook/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;DEPLOYDIR：部署的目錄&lt;/li&gt;
+&lt;li&gt;GITDIR：Git 目錄&lt;/li&gt;
+&lt;li&gt;BRNCH_NAME：分支名稱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## store the arguments given to the script&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;read&lt;/span&gt; oldrev newrev refname
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## Where to store the log information about the updates&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;LOGFILE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./post-receive.log
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 部署的目錄 The deployed directory (the running site)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;DEPLOYDIR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/directory/to/deploy/to
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Git 目錄&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;GITDIR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/directory/above/hooks/repo_name.git
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 分支名稱&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;BRNCH_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;checkout_branch_name
+
+&lt;span style=&#34;color:#000&#34;&gt;blue&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\033[1;34m&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;no_color&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\033[0m&amp;#39;&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# %ae = Extract the user email from the last commit (author email)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;USER_EMAIL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;git log -1 --format&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;format:%ae HEAD&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# %an = Extract the username from the last commit (author name)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;USER_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;git log -1 --format&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;format:%an HEAD&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## Record the fact that the push has been received&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; -e &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Received Push Request at &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt; date +%Y-%m-%d:%H:%M:%S &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; by &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$USER_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; (&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$USER_EMAIL&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;)&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style=&#34;color:#000&#34;&gt;$LOGFILE&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; - Old SHA: &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$oldrev&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; New SHA: &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$newrev&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; Branch Name: &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$refname&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style=&#34;color:#000&#34;&gt;$LOGFILE&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## Update the deployed copy&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Starting Deploy&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style=&#34;color:#000&#34;&gt;$LOGFILE&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; - Starting code deployment (to &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$DEPLOYDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;)&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Move into the deploy directory&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$DEPLOYDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Then do a fresh checkout&lt;/span&gt;
+git --git-dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$GITDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; --work-tree&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$DEPLOYDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; checkout -f &lt;span style=&#34;color:#000&#34;&gt;$BRNCH_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Then do a fresh update of all submodules.&lt;/span&gt;
+git --git-dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$GITDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; --work-tree&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$DEPLOYDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; submodule update --init --recursive
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# We&amp;#39;re done in the deploy directory, so navigate back.&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;git-主機位置&#34;&gt;Git 主機位置&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh://{帳號}@{主機網址}:{連接阜}{git 目錄}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh://{account}@{host_name}:{port}{git_folder}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh://kj@kejyun.com:22/home/kejyun/repo/kejyun.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>
