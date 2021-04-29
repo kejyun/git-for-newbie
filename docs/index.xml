@@ -15,5 +15,136 @@
       
     
     
+    <item>
+      <title>Docs: 更新 git 資料夾下的所有子模組</title>
+      <link>https://git-for-newbie.kejyun.com/docs/submodule/update-all-submodule/</link>
+      <pubDate>Thu, 29 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/submodule/update-all-submodule/</guid>
+      <description>
+        
+        
+        &lt;p&gt;git 專案可以使用各種子模組去管理專案，但若子模組也有載入子模組的話，會需要依序地進去各個子模組將模組的子子模組抓下來，這樣會造成很大的困擾，所以可以使用下列指令一次就將所有的子模組皆載入下來&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;子模組使用注意事項&#34;&gt;子模組使用注意事項&lt;/h2&gt;
+&lt;p&gt;因為子模組也可能會有自己的子模組，如果互相引用的話在抓取專案可能會造成 &lt;code&gt;遞迴&lt;/code&gt; 的狀況，導致專案 &lt;em&gt;無窮迴圈永遠抓不完&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;所以在規劃子模組至專案是，記得要規範好不同模組之間的依賴關係，小心 &lt;em&gt;&lt;strong&gt;不要造成遞迴子模組載入&lt;/strong&gt;&lt;/em&gt; 的狀況&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 刪除子模組</title>
+      <link>https://git-for-newbie.kejyun.com/docs/submodule/delete-submodule/</link>
+      <pubDate>Thu, 29 Apr 2021 00:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/docs/submodule/delete-submodule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;方法-1&#34;&gt;方法 1&lt;/h2&gt;
+&lt;h3 id=&#34;1-變更模組資料夾名稱&#34;&gt;1. 變更模組資料夾名稱&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mv &lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;子模組暫存路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mv &lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;path/to/rename-submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;mv app/submodule-app app/submodule-app-tmp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-刪除子模組設定&#34;&gt;2. 刪除子模組設定&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git submodule deinit -f &amp;ndash; &lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git submodule deinit -f &amp;ndash; &lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule deinit -f -- app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-移除-git-目錄子模組&#34;&gt;3. 移除 &lt;code&gt;.git&lt;/code&gt; 目錄子模組&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf .git/modules/&lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf .git/modules/&lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;rm -rf .git/modules/app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;4-刪除子模組&#34;&gt;4. 刪除子模組&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git rm -f &lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git rm -f &lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git rm -f app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;方法-2&#34;&gt;方法 2&lt;/h2&gt;
+&lt;h3 id=&#34;1-移除-gitmodules-中子模組資訊&#34;&gt;1. 移除 &lt;code&gt;.gitmodules&lt;/code&gt; 中子模組資訊&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;submodule &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;app/submodule-app&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; app/submodule-app
+&lt;span style=&#34;color:#000&#34;&gt;url&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; git@github.com:kejyun/app-submodule.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-將-gitmodules-加入-stage-狀態&#34;&gt;2. 將 &lt;code&gt;.gitmodules&lt;/code&gt; 加入 stage 狀態&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git add .gitmodules
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-刪除-gitconfig-子模組資訊&#34;&gt;3. 刪除 &lt;code&gt;.git/config&lt;/code&gt; 子模組資訊&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;submodule &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;app/submodule-app&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+	&lt;span style=&#34;color:#000&#34;&gt;url&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; git@github.com:kejyun/app-submodule-app.git
+	&lt;span style=&#34;color:#000&#34;&gt;active&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;4-從工作目錄移除子模組&#34;&gt;4. 從工作目錄移除子模組&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git rm &amp;ndash;cached &lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git rm &amp;ndash;cached &lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git rm --cached app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;5-移除-gitmodules-中的子模組目錄&#34;&gt;5. 移除 &lt;code&gt;.git/modules&lt;/code&gt; 中的子模組目錄&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf .git/modules/&lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf .git/modules/&lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;rm -rf .git/modules/app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;6-commit-提交子模組移除的異動&#34;&gt;6. commit 提交子模組移除的異動&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git commit -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Removed submodule &amp;lt;app/submodule-app&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;7-刪除子模組目錄&#34;&gt;7. 刪除子模組目錄&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf &lt;code&gt;&amp;lt;子模組路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm -rf &lt;code&gt;&amp;lt;path/to/submodule-folder&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;rm -rf app/submodule-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule&#34;&gt;git - How do I remove a submodule? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial#Removal&#34;&gt;GitSubmoduleTutorial - Git SCM Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting: error setting certificate verify</title>
+      <link>https://git-for-newbie.kejyun.com/troubleshooting/ssh/error-setting-certificate-verify/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/troubleshooting/ssh/error-setting-certificate-verify/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在透過 https 去 clone github 的 Repository 時，出現 &lt;code&gt;error setting certificate verify locations&lt;/code&gt; 的訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git clone https://github.com/FortAwesome/Font-Awesome.git
+Cloning into &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Font-Awesome&amp;#39;&lt;/span&gt;...
+fatal: unable to access &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;https://github.com/FortAwesome/Font-Awesome.git/&amp;#39;&lt;/span&gt;: error setting certificate verify locations:
+  CAfile: /Users/kejyun/.ssh/id_rsa
+  CApath: none
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;發現是驗證 ssl 憑證時發生錯誤，在 &lt;code&gt;git config&lt;/code&gt; 設定 &lt;code&gt;http.sslverify&lt;/code&gt; 不要驗證 ssl 憑證即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git config --system http.sslverify &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dotblogs.com.tw/mingju/2019/07/08/134644&#34;&gt;[Git] error setting certificate verify | 拷貝工程師 - 點部落&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
