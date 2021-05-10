@@ -185,7 +185,7 @@ if (!doNotTrack) {
 		],
 		"genre":["KJ"],
 		"articleSection": "KJ",
-		"articleBody": "加入子模組 1.建立子模組 repository\n例如在 github 建立一個 KJModule 的子模組，建立完後一定要做一次 commit，這樣才可以順利的將子模組加入進去到其他專案\ngit@github.com:kejyun\/KJModule.git 2.加入子模組\ngit submodule add \u0026lt;repository\u0026gt; [\u0026lt;path\u0026gt;] git submodule add git@github.com:kejyun\/KJModule.git .\/app\/KJModule 指定需要加入的子模組 Repository 以及子模組需要放到專案的哪個路徑中\n抓取含有子模組的專案 1.取得資源庫\ngit clone git@github.com:kejyun\/KJ.git 2.初始化子模組並更新\ngit submodule init git submodule update 變更子模組 repository 路徑 在 git 子目錄有 .gitmodules 檔案，如果模組路徑要刪除或變更，需要修改此檔案\n[submodule \u0026#34;app\/KeJyunModule\u0026#34;] path = app\/KeJyunModule url = git@github.com:kejyun\/KeJyunModule.git [submodule \u0026#34;app\/KeJyunGroupModule\u0026#34;] path = app\/KeJyunGroupModule url = git@github.com:kejyun\/KeJyunGroupModule.git 在隱藏目錄 .git 中，找到你要變更的模組目錄的設定檔案\n .git\/modules\/\u0026lt;模組路徑\u0026gt;\/config\n vim ~\/KeJyunProject\/.git\/modules\/app\/KeJyunModule\/config 在 config 設定檔變更 [remote\u0026quot;origin\u0026quot;] 的 url 去變更子模組的路徑\n[core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true worktree = ..\/..\/..\/..\/app\/KeJyunModule [remote \u0026#34;origin\u0026#34;] url = git@github.com:kejyun\/KeJyunModule.git fetch = \u002brefs\/heads\/*:refs\/remotes\/origin\/* [branch \u0026#34;master\u0026#34;] remote = origin merge = refs\/heads\/master "
+		"articleBody": "加入子模組 1.建立子模組 repository\n例如在 github 建立一個 KJModule 的子模組，建立完後一定要做一次 commit，這樣才可以順利的將子模組加入進去到其他專案\ngit@github.com:kejyun\/KJModule.git 2.加入子模組\ngit submodule add \u0026lt;repository\u0026gt; [\u0026lt;path\u0026gt;] git submodule add git@github.com:kejyun\/KJModule.git .\/app\/KJModule 指定需要加入的子模組 Repository 以及子模組需要放到專案的哪個路徑中\n抓取含有子模組的專案 1.取得資源庫\ngit clone git@github.com:kejyun\/KJ.git 2.初始化子模組並更新\ngit submodule init git submodule update 變更子模組 repository 路徑 在 git 子目錄有 .gitmodules 檔案，如果模組路徑要刪除或變更，需要修改此檔案\n[submodule \u0026#34;app\/KeJyunModule\u0026#34;] path = app\/KeJyunModule url = git@github.com:kejyun\/KeJyunModule.git [submodule \u0026#34;app\/KeJyunGroupModule\u0026#34;] path = app\/KeJyunGroupModule url = git@github.com:kejyun\/KeJyunGroupModule.git 在隱藏目錄 .git 中，找到你要變更的模組目錄的設定檔案\n .git\/modules\/\u0026lt;模組路徑\u0026gt;\/config\n vim ~\/KeJyunProject\/.git\/modules\/app\/KeJyunModule\/config 在 config 設定檔變更 [remote\u0026quot;origin\u0026quot;] 的 url 去變更子模組的路徑\n[core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true worktree = ..\/..\/..\/..\/app\/KeJyunModule [remote \u0026#34;origin\u0026#34;] url = git@github.com:kejyun\/KeJyunModule.git fetch = \u002brefs\/heads\/*:refs\/remotes\/origin\/* [branch \u0026#34;master\u0026#34;] remote = origin merge = refs\/heads\/master clone 直接下載所有子模組 使用 clone 指令時可以加入 --recursive 參數，直接抓取該 repository 的所有子資料夾\ngit clone --recursive git@github.com:kejyun\/KJ.git 更新 git 資料夾下的所有子模組 git 專案可以使用各種子模組去管理專案，但若子模組也有載入子模組的話，會需要依序地進去各個子模組將模組的子子模組抓下來，這樣會造成很大的困擾，所以可以使用下列指令一次就將所有的子模組皆載入下來\ngit submodule update --init --recursive 子模組使用注意事項 因為子模組也可能會有自己的子模組，如果互相引用的話在抓取專案可能會造成 遞迴 的狀況，導致專案 無窮迴圈永遠抓不完\n所以在規劃子模組至專案是，記得要規範好不同模組之間的依賴關係，小心 不要造成遞迴子模組載入 的狀況\n"
 	}
 </script>
 
@@ -351,7 +351,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7e11aef69e4c0d5074a3803ba22e0bb2.json"
+  data-offline-search-index-json-src="/offline-search-index.1aebc0c484fc46b44e85b782b71565cf.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -387,7 +387,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7e11aef69e4c0d5074a3803ba22e0bb2.json"
+  data-offline-search-index-json-src="/offline-search-index.1aebc0c484fc46b44e85b782b71565cf.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -718,6 +718,9 @@ if (!doNotTrack) {
     <li><a href="#加入子模組">加入子模組</a></li>
     <li><a href="#抓取含有子模組的專案">抓取含有子模組的專案</a></li>
     <li><a href="#變更子模組-repository-路徑">變更子模組 repository 路徑</a></li>
+    <li><a href="#clone-直接下載所有子模組">clone 直接下載所有子模組</a></li>
+    <li><a href="#更新-git-資料夾下的所有子模組">更新 git 資料夾下的所有子模組</a></li>
+    <li><a href="#子模組使用注意事項">子模組使用注意事項</a></li>
   </ul>
 </nav>
 
@@ -819,7 +822,16 @@ git submodule update
 <span style="color:#ce5c00;font-weight:bold">[</span>branch <span style="color:#4e9a06">&#34;master&#34;</span><span style="color:#ce5c00;font-weight:bold">]</span>
 	<span style="color:#000">remote</span> <span style="color:#ce5c00;font-weight:bold">=</span> origin
 	<span style="color:#000">merge</span> <span style="color:#ce5c00;font-weight:bold">=</span> refs/heads/master
-</code></pre></div>
+</code></pre></div><h2 id="clone-直接下載所有子模組">clone 直接下載所有子模組</h2>
+<p>使用 clone 指令時可以加入 <code>--recursive</code> 參數，直接抓取該 repository 的所有子資料夾</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone --recursive git@github.com:kejyun/KJ.git
+</code></pre></div><h2 id="更新-git-資料夾下的所有子模組">更新 git 資料夾下的所有子模組</h2>
+<p>git 專案可以使用各種子模組去管理專案，但若子模組也有載入子模組的話，會需要依序地進去各個子模組將模組的子子模組抓下來，這樣會造成很大的困擾，所以可以使用下列指令一次就將所有的子模組皆載入下來</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git submodule update --init --recursive
+</code></pre></div><h2 id="子模組使用注意事項">子模組使用注意事項</h2>
+<p>因為子模組也可能會有自己的子模組，如果互相引用的話在抓取專案可能會造成 <code>遞迴</code> 的狀況，導致專案 <em>無窮迴圈永遠抓不完</em></p>
+<p>所以在規劃子模組至專案是，記得要規範好不同模組之間的依賴關係，小心 <em><strong>不要造成遞迴子模組載入</strong></em> 的狀況</p>
+
     
 		
 		<div class="section-index">
