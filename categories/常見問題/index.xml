@@ -5,7 +5,7 @@
     <description>Recent content in 常見問題 on Git 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Nov 2021 03:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://git-for-newbie.kejyun.com/categories/%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,6 +14,45 @@
         
       
     
+    
+    <item>
+      <title>Troubleshooting: Mac 排除 .DS_Store 檔案</title>
+      <link>https://git-for-newbie.kejyun.com/troubleshooting/file/ds-store/</link>
+      <pubDate>Mon, 08 Nov 2021 03:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/troubleshooting/file/ds-store/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;移除步驟&#34;&gt;移除步驟&lt;/h2&gt;
+&lt;h3 id=&#34;1-清除-git-快取&#34;&gt;1. 清除 git 快取&lt;/h3&gt;
+&lt;p&gt;到 git 目錄清除有 &lt;code&gt;.DS_Store&lt;/code&gt; 檔案的快取&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git rm --cached .DS_Store
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-移除目錄中的-ds_store-檔案&#34;&gt;2. 移除目錄中的 &lt;code&gt;.DS_Store&lt;/code&gt; 檔案&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find . -name .DS_Store -print0 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; xargs -0 git rm --ignore-unmatch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-全域設定不再加入-ds_store-檔案至-git&#34;&gt;3. 全域設定不再加入 &lt;code&gt;.DS_Store&lt;/code&gt; 檔案至 git&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; .DS_Store &amp;gt;&amp;gt; ~/.gitignore_global
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git config --global core.excludesfile ~/.gitignore_global
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/18393498/gitignore-all-the-ds-store-files-in-every-folder-and-subfolder&#34;&gt;.gitignore all the .DS_Store files in every folder and subfolder - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting: 檔案</title>
+      <link>https://git-for-newbie.kejyun.com/troubleshooting/file/</link>
+      <pubDate>Mon, 08 Nov 2021 03:50:29 +0800</pubDate>
+      
+      <guid>https://git-for-newbie.kejyun.com/troubleshooting/file/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
     
     <item>
       <title>Troubleshooting: ssh</title>
