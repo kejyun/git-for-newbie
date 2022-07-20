@@ -122,7 +122,7 @@ if (!doNotTrack) {
     "author":"KeJyun",
     "creator":"KeJyun",
     
-    "dateModified":"2021-04-17T00:50:29\u002b08:00",
+    "dateModified":"2022-07-11T00:00:47\u002b08:00",
     "articleSection":"TechArticle"
 }
 </script>
@@ -141,7 +141,7 @@ if (!doNotTrack) {
 		"alternativeHeadline": "分支（Branch）",
 		"dateCreated": "2021-04-17T00:50:29\u002b08:00",
 		"datePublished": "2021-04-17T00:50:29\u002b08:00",
-		"dateModified": "2021-04-17T00:50:29\u002b08:00",
+		"dateModified": "2022-07-11T00:00:47\u002b08:00",
 		"inLanguage": "zh",
 		"isFamilyFriendly": "true",
 		"copyrightYear": "2021",
@@ -185,7 +185,7 @@ if (!doNotTrack) {
 		],
 		"genre":["KJ"],
 		"articleSection": "KJ",
-		"articleBody": "切換分支 git checkout branch_name 切換到指定 commit git checkout bc29f91 查詢目前所在位置 hash git rev-parse HEAD git rev-parse --verify HEAD 查詢 hash 對應名稱 git show-ref git for-each-ref 切換到遠端分支 git fetch git checkout test git checkout -b test origin\/test "
+		"articleBody": "git branch 指令參數  git branch \u0026lt;argument\u0026gt;\n git branch --help    參數 說明     -v \/ -vv \/ --verbose 簡述分支資訊   -a \/ --all 列出所有分支   -d \/ --delete 刪除分支   -D 強制刪除分支，等於 --delete --force    切換分支 git checkout \u0026lt;branch_name\u0026gt; 切換到指定 commit git checkout bc29f91 查詢目前所在位置 hash git rev-parse HEAD git rev-parse --verify HEAD 查詢 hash 對應名稱 git show-ref git for-each-ref 切換到遠端分支 Git 2.23 以後版本 抓取所有分支資料\ngit fetch 列出並查詢目前所有分支\ngit branch -v -a ... remotes\/origin\/test 切換到遠端分支，並在本地端建立分支\ngit switch test Git 2.23 以前版本 抓取所有分支資料\ngit fetch 列出並查詢目前所有分支\ngit branch -v -a ... remotes\/origin\/test 切換到遠端分支，並在本地端建立分支\ngit switch -c test origin\/test git checkout -b test origin\/test 參考資料  git checkout - How do I check out a remote Git branch? - Stack Overflow  "
 	}
 </script>
 
@@ -351,7 +351,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.27f030c368b49baefa056057fc293aa9.json"
+  data-offline-search-index-json-src="/offline-search-index.9dcbaed2142613c45ea46fa6f4f15d3b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -387,7 +387,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.27f030c368b49baefa056057fc293aa9.json"
+  data-offline-search-index-json-src="/offline-search-index.9dcbaed2142613c45ea46fa6f4f15d3b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -715,11 +715,18 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#git-branch-指令參數">git branch 指令參數</a></li>
     <li><a href="#切換分支">切換分支</a></li>
     <li><a href="#切換到指定-commit">切換到指定 commit</a></li>
     <li><a href="#查詢目前所在位置-hash">查詢目前所在位置 hash</a></li>
     <li><a href="#查詢-hash-對應名稱">查詢 hash 對應名稱</a></li>
-    <li><a href="#切換到遠端分支">切換到遠端分支</a></li>
+    <li><a href="#切換到遠端分支">切換到遠端分支</a>
+      <ul>
+        <li><a href="#git-223-以後版本">Git 2.23 以後版本</a></li>
+        <li><a href="#git-223-以前版本">Git 2.23 以前版本</a></li>
+      </ul>
+    </li>
+    <li><a href="#參考資料">參考資料</a></li>
   </ul>
 </nav>
 
@@ -779,8 +786,39 @@ if (!doNotTrack) {
 
 
  
-		<h2 id="切換分支">切換分支</h2>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout branch_name
+		<h2 id="git-branch-指令參數">git branch 指令參數</h2>
+<blockquote>
+<p>git branch <code>&lt;argument&gt;</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git branch --help
+</code></pre></div><table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-v / -vv / --verbose</code></td>
+<td>簡述分支資訊</td>
+</tr>
+<tr>
+<td><code>-a / --all</code></td>
+<td>列出所有分支</td>
+</tr>
+<tr>
+<td><code>-d / --delete</code></td>
+<td>刪除分支</td>
+</tr>
+<tr>
+<td><code>-D</code></td>
+<td>強制刪除分支，等於 <code>--delete --force</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="切換分支">切換分支</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout &lt;branch_name&gt;
 </code></pre></div><h2 id="切換到指定-commit">切換到指定 commit</h2>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout bc29f91
 </code></pre></div><h2 id="查詢目前所在位置-hash">查詢目前所在位置 hash</h2>
@@ -790,10 +828,32 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git show-ref
 </code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git <span style="color:#204a87;font-weight:bold">for</span>-each-ref
 </code></pre></div><h2 id="切換到遠端分支">切換到遠端分支</h2>
+<h3 id="git-223-以後版本">Git 2.23 以後版本</h3>
+<p>抓取所有分支資料</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git fetch
-git checkout <span style="color:#204a87">test</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout -b <span style="color:#204a87">test</span> origin/test
-</code></pre></div>
+</code></pre></div><p>列出並查詢目前所有分支</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git branch -v -a
+
+...
+remotes/origin/test
+</code></pre></div><p>切換到遠端分支，並在本地端建立分支</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git switch <span style="color:#204a87">test</span>
+</code></pre></div><h3 id="git-223-以前版本">Git 2.23 以前版本</h3>
+<p>抓取所有分支資料</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git fetch
+</code></pre></div><p>列出並查詢目前所有分支</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git branch -v -a
+
+...
+remotes/origin/test
+</code></pre></div><p>切換到遠端分支，並在本地端建立分支</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git switch -c <span style="color:#204a87">test</span> origin/test
+git checkout -b <span style="color:#204a87">test</span> origin/test
+</code></pre></div><h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch">git checkout - How do I check out a remote Git branch? - Stack Overflow</a></li>
+</ul>
+
     
 		
 		<div class="section-index">
@@ -864,7 +924,7 @@ git checkout <span style="color:#204a87">test</span>
 		
 		
 		
-	<div class="text-muted mt-5 pt-3 border-top">最後修改 April 17, 2021
+	<div class="text-muted mt-5 pt-3 border-top">最後修改 July 11, 2022
 </div>
 </div>
 
@@ -898,7 +958,7 @@ git checkout <span style="color:#204a87">test</span>
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 KJ All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 KJ All Rights Reserved</small>
         
 	
 		
